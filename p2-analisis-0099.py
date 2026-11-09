@@ -18,5 +18,22 @@ print("----------por agregacion----------")
 # Autonomia_km promedio por Precio_USD 
 print(agrupado["Autonomia_Km"].mean())
 
-# Precio_USD maximo en cada Precio_USD
+# Nivel riesgo en cada Precio_USD
 print(agrupado['Precio_USD'].max())
+
+print("------Anais Medina---segunda parte----------")
+print("Agregacion multiple")
+print("mean --> promedio, sum --> suma")
+print("max --> maximo, min --> minimo")
+
+resultado_agregado = agrupado['Autonomia_Km'].agg(['mean', 'sum', 'max', 'min'])
+print(resultado_agregado)
+
+print("Agrupacion por varias columnas (agregaciones multiples)")
+print("Agrega varias columna al DataFrame")
+print("Columna Team --> Equipo")
+
+df['Equipo'] = ['A', 'B', 'A', 'B', 'A', 'B']
+
+agregados_multiples = df.groupby(['Tipo_Motor', 'Equipo'])['Autonomia_Km'].mean()
+print(agregados_multiples)
